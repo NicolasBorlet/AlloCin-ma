@@ -1,0 +1,22 @@
+{
+  "name": "allocin-ma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasBorlet/AlloCin-ma.git"
+  },
+  "author": "Nicolas Borlet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicolasBorlet/AlloCin-ma/issues"
+  },
+  "homepage": "https://github.com/NicolasBorlet/AlloCin-ma#readme",
+  "dependencies": {
+    "parcel": "^2.7.0"
+  }
+}
