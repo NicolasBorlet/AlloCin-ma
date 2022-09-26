@@ -5,6 +5,7 @@ fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=" + process.env.APP
     .then ( data => {
         Genre=('res', data.genres.map(g => g.name))
 
+
         Genre.forEach(element => {
             console.log(element)
             document.getElementById("demo").innerHTML = element;
