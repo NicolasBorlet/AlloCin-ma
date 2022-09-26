@@ -535,7 +535,10 @@ function hmrAcceptRun(bundle, id) {
 require("dotenv").config({
     path: "../.env"
 });
-console.log("d52f854a2c7af4dfc18f4b5045adb81e"); //console.log(APP_CLE_API);
+KEY = console.log("d52f854a2c7af4dfc18f4b5045adb81e");
+fetch("https://api.themoviedb.org/3/movie/550?api_key=d52f854a2c7af4dfc18f4b5045adb81e").then((res)=>res.json()).then((data)=>{
+    console.log("res", data);
+});
 
 },{"dotenv":"lErsX"}],"lErsX":[function(require,module,exports) {
 var process = require("process");
