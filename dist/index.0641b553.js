@@ -535,9 +535,12 @@ function hmrAcceptRun(bundle, id) {
 require("dotenv").config({
     path: "../.env"
 });
-KEY = console.log("d52f854a2c7af4dfc18f4b5045adb81e");
-fetch("https://api.themoviedb.org/3/movie/550?api_key=d52f854a2c7af4dfc18f4b5045adb81e").then((res)=>res.json()).then((data)=>{
-    console.log("res", data);
+fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=d52f854a2c7af4dfc18f4b5045adb81e").then((res)=>res.json()).then((data)=>{
+    Genre = data.genres.map((g)=>g.name);
+    Genre.forEach((element)=>{
+        console.log(element);
+        document.getElementById("demo").innerHTML = element;
+    });
 });
 
 },{"dotenv":"lErsX"}],"lErsX":[function(require,module,exports) {
