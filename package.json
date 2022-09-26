@@ -19,6 +19,13 @@
   },
   "homepage": "https://github.com/NicolasBorlet/AlloCin-ma#readme",
   "dependencies": {
+    "dotenv": "^16.0.2",
     "parcel": "^2.7.0"
-  }
+  },
+  "devDependencies": {
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10"
+  },
+  "browser": ".src/browser.js"
 }
