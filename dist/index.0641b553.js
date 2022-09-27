@@ -536,13 +536,11 @@ require("dotenv").config({
     path: "../.env"
 });
 fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=d52f854a2c7af4dfc18f4b5045adb81e").then((res)=>res.json()).then((data)=>{
-    const genre = data.genres.map((g)=>g.name);
-    const listGenre = genre.map((element)=>{
-        return element;
+    Genre = data.genres.map((g)=>g.name);
+    Genre.forEach((element)=>{
+        console.log(element);
+        document.getElementById("demo").innerHTML = element;
     });
-    const div = document.createElement("div");
-    document.getElementById("demo").innerHTML = JSON.stringify(listGenre);
-//document.getElementById("main").appendChild(div).innerHTML = JSON.stringify(listGenre);
 });
 
 },{"dotenv":"lErsX"}],"lErsX":[function(require,module,exports) {
