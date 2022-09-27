@@ -28,13 +28,14 @@ const CategoriesListing = () => {
             containerDOM.setAttribute('class', "container");
             
             const containerInfoDOM = document.createElement('div');
-            containerInfoDOM.setAttribute('class', "container");
+            containerInfoDOM.setAttribute('class', "container-info");
 
-
+            
             // ✅ Add text content to element
             // div.textContent = JSON.stringify(listGenre);
 
             // ✅ Or set the innerHTML of the element
+            containerDOM.innerHTML = element;
 
             // ✅ (Optionally) Set Attributes on Element
             // div.setAttribute('title', 'my-title');
