@@ -8,10 +8,6 @@ fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=" + process.env.APP
             return element
         })
         const div = document.createElement("div");
-        array.forEach(element => {
-            div 
+        listGenre.forEach(element => { 
         });
-
-        document.getElementById("demo").innerHTML = JSON.stringify(listGenre);
-        //document.getElementById("main").appendChild(div).innerHTML = JSON.stringify(listGenre);
     })

@@ -544,8 +544,10 @@ fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=d52f854a2c7af4dfc18
     array.forEach((element)=>{
         div;
     });
-    document.getElementById("demo").innerHTML = JSON.stringify(listGenre);
-//document.getElementById("main").appendChild(div).innerHTML = JSON.stringify(listGenre);
+    Genre.forEach((element)=>{
+        console.log(element);
+        document.getElementById("demo").innerHTML = element;
+    });
 });
 
 },{"dotenv":"lErsX"}],"lErsX":[function(require,module,exports) {
