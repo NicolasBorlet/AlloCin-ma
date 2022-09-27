@@ -536,7 +536,14 @@ require("dotenv").config({
     path: "../.env"
 });
 fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=d52f854a2c7af4dfc18f4b5045adb81e").then((res)=>res.json()).then((data)=>{
-    Genre = data.genres.map((g)=>g.name);
+    const genre = data.genres.map((g)=>g.name);
+    const listGenre = genre.map((element)=>{
+        return element;
+    });
+    const div = document.createElement("div");
+    array.forEach((element)=>{
+        div;
+    });
     Genre.forEach((element)=>{
         console.log(element);
         document.getElementById("demo").innerHTML = element;
