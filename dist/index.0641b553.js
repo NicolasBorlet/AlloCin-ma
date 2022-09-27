@@ -533,47 +533,29 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"bNKaB":[function(require,module,exports) {
 require("dotenv").config({
-    path: "../.env"
+    path: ".env"
 });
-const CategoriesListing = ()=>{
-    fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=d52f854a2c7af4dfc18f4b5045adb81e").then((res)=>res.json()).then((data)=>{
-        const genre = data.genres.map((g)=>g.name);
-        const listGenre = genre.map((element)=>{
-            return element;
-        });
-        listGenre.forEach((element)=>{
-            //   <div class="container">
-            //   <div class="container-info">
-            //     <h2>Test</h2>
-            //     <p class="film-date">Test</p>
-            //     <p class="film-realisateur">Test</p>
-            //     <p class="film-acteurs">Test</p>
-            //   </div>
-            //   <div class="container-img">
-            //     <img src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="maxi éléphant"/>
-            //   </div>
-            // </div>
-            console.log(element);
-            // ✅ Create element
-            const containerDOM = document.createElement("div");
-            containerDOM.setAttribute("class", "container");
-            const containerInfoDOM = document.createElement("div");
-            containerInfoDOM.setAttribute("class", "container");
-            // ✅ Add text content to element
-            // div.textContent = JSON.stringify(listGenre);
-            // ✅ Or set the innerHTML of the element
-            // ✅ (Optionally) Set Attributes on Element
-            // div.setAttribute('title', 'my-title');
-            // ✅ (Optionally) Set styles on Element
-            // el.style.backgroundColor = 'salmon';
-            // el.style.color = 'white';
-            // ✅ add element to DOM
-            const container = document.querySelector(".block-container");
-            container.appendChild(containerDOM);
-        });
+const MovieListing = (path)=>{
+    return new Promise((resolve, reject)=>{
+        fetch("https://api.themoviedb.org/3" + path + "?api_key=" + "d52f854a2c7af4dfc18f4b5045adb81e" + "&query=Jack+Reacher").then((res)=>res.json()).then((data)=>resolve(data)).catch((e)=>reject(e));
     });
 };
-CategoriesListing();
+MovieListing("/search/movie").then((data)=>{
+    const results = data.results;
+    const listGenre = results.map((element)=>{
+        return element;
+    });
+    console.log(results);
+    listGenre.forEach((element)=>{
+        const containerDOM = document.createElement("div");
+        containerDOM.setAttribute("class", "container");
+        const containerInfoDOM = document.createElement("div");
+        containerInfoDOM.setAttribute("class", "container-info");
+        containerDOM.innerHTML = element;
+        const container = document.querySelector(".block-container");
+        container.appendChild(containerDOM);
+    });
+});
 
 },{"dotenv":"lErsX"}],"lErsX":[function(require,module,exports) {
 var process = require("process");

@@ -11,10 +11,13 @@ const MovieListing = (path) => {
 
 MovieListing("/search/movie")
     .then(data=> {
-        const genre=('res', data.results.map(g => g.name))
-        const listGenre=genre.map(element => {
+        const results = data.results;
+        const listGenre=results.map(element => {
             return element
         })
+
+        console.log(results)
+
         
         listGenre.forEach(element => {
         
@@ -23,6 +26,8 @@ MovieListing("/search/movie")
 
         const containerInfoDOM = document.createElement('div');
         containerInfoDOM.setAttribute('class', "container-info");
+
+        containerDOM.innerHTML = element;
 
         const container = document.querySelector('.block-container');
         container.appendChild(containerDOM);
