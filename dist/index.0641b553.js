@@ -537,24 +537,26 @@ require("dotenv").config({
 });
 const MovieListing = (path)=>{
     return new Promise((resolve, reject)=>{
-        fetch("https://api.themoviedb.org/3" + path + "?api_key=" + "d52f854a2c7af4dfc18f4b5045adb81e" + "&query=Jack+Reacher").then((res)=>res.json()).then((data)=>resolve(data)).catch((e)=>reject(e));
+        fetch("https://api.themoviedb.org/3" + path + "?api_key=" + "d52f854a2c7af4dfc18f4b5045adb81e" + "&query=Jack+Reacher").then((res)=>res.json()).then((data)=>{
+            const results = data.results;
+            const listGenre = results.map((element)=>{
+                return element;
+            });
+            console.log(results);
+            listGenre.forEach((element)=>{
+                const containerDOM = document.createElement("div");
+                containerDOM.setAttribute("class", "container");
+                const containerInfoDOM = document.createElement("div");
+                containerInfoDOM.setAttribute("class", "container-info");
+                containerDOM.innerHTML = element;
+                const container = document.querySelector(".block-container");
+                container.appendChild(containerDOM);
+            });
+        }).catch((e)=>reject(e));
     });
 };
 MovieListing("/search/movie").then((data)=>{
-    const results = data.results;
-    const listGenre = results.map((element)=>{
-        return element;
-    });
-    console.log(results);
-    listGenre.forEach((element)=>{
-        const containerDOM = document.createElement("div");
-        containerDOM.setAttribute("class", "container");
-        const containerInfoDOM = document.createElement("div");
-        containerInfoDOM.setAttribute("class", "container-info");
-        containerDOM.innerHTML = element;
-        const container = document.querySelector(".block-container");
-        container.appendChild(containerDOM);
-    });
+    console.log("res", data);
 });
 
 },{"dotenv":"lErsX"}],"lErsX":[function(require,module,exports) {
