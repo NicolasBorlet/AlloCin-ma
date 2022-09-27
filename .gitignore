@@ -2,3 +2,4 @@ node_modules/
 .parcel-cache
 .env
 dist
+dist/index.0641b553.js.map
